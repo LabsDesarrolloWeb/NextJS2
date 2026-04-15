@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proyecto Basico: Props + Plantilla en Next.js
 
-## Getting Started
+Practica simple para aprender:
 
-First, run the development server:
+- Como consumir una API externa.
+- Como usar props en TypeScript.
+- Como crear un componente tipo plantilla para reutilizar HTML.
+- Como renderizar 1 elemento y luego varios con map.
+
+API usada:
+
+- https://jsonplaceholder.typicode.com/posts
+
+## Estructura clave
+
+- `app/page.tsx`: llamada a la API, tipo `Post`, componente `PostCard` y render.
+- `app/globals.css`: estilos basicos para que se vea claro.
+
+## Ejecutar proyecto
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir en navegador:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Que se muestra
 
-## Learn More
+1. Seccion 1: renderiza solo el primer post.
+2. Seccion 2: muestra la forma de renderizar varios posts usando `map`.
 
-To learn more about Next.js, take a look at the following resources:
+## Idea principal de props
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El componente `PostCard` recibe un `post` por props:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```tsx
+function PostCard({ post }: { post: Post }) {
+	return (
+		<article>
+			<h2>{post.title}</h2>
+			<p>{post.body}</p>
+		</article>
+	);
+}
+```
 
-## Deploy on Vercel
+Despues lo reutilizas:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```tsx
+<PostCard post={firstPost} />
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Y para muchos:
+
+```tsx
+{posts.slice(0, 3).map((post) => (
+	<PostCard key={post.id} post={post} />
+))}
+```

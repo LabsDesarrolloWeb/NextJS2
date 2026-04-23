@@ -154,6 +154,8 @@ export default async function Home() {
               body={post.body}
             />
           ))}
+
+          
         </div>
       </section>
     </main>

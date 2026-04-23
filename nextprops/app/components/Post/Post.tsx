@@ -10,7 +10,6 @@ type PostProps = {
 export default function Post({ userId, id, title, body }: PostProps) {
   return (
     <article className={styles.card}>
-      <>Esto no es un post</>
       <p className={styles.postId}>Post #{id}</p>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.body}>{body}</p>

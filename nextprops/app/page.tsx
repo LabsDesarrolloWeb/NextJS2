@@ -1,4 +1,6 @@
-type Post = {
+import Post from "./components/Post/Post";
+
+type PostType = {
   userId: number;
   id: number;
   title: string;
@@ -17,13 +19,13 @@ interface Producto {
   nombre: string;
   precio: number;
   disponible: boolean;
-}
+};
 
 // --- 2) Extender una interface ---
 // Agregamos campos extra sin tocar la original.
 interface ProductoConCategoria extends Producto {
   categoria: string;
-}
+};
 
 function repasoTypeScript() {
   console.log("========== REPASO TYPESCRIPT ==========");
@@ -49,9 +51,15 @@ function repasoTypeScript() {
   };
   console.log("--- Paso 2: Interface extendida ---");
   console.log("mouse:", mouse);
-// Acceso a campo extra
+  console.log("mouse.categoria:", mouse.categoria);
   // --- 5) Arreglo tipado de objetos ---
   // El tipo Producto[] garantiza que cada elemento cumple la interface.
+  interface Producto {
+  id: number;
+  nombre: string;
+  precio: number;
+  disponible: boolean;
+}
   const inventario: Producto[] = [
     laptop,
     { id: 3, nombre: "Teclado", precio: 800, disponible: false },
@@ -96,7 +104,7 @@ function repasoTypeScript() {
 // Ejecutar el repaso al cargar la pagina (aparece en la terminal del servidor)
 repasoTypeScript();
 
-async function getPosts(): Promise<Post[]> {
+async function getPosts(): Promise<PostType[]> {
   
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
 
@@ -106,20 +114,10 @@ async function getPosts(): Promise<Post[]> {
   console.log("Posts cargados correctamente");
   console.log("Response status:", response.status);
   console.log("Response headers:", response.headers);
-  const data: Post[] = await response.json();
+  const data: PostType[] = await response.json();
   console.log("Response JSON:", data);
 
   return data;
-}
-
-function PostCard({ post }: { post: Post }) {
-  return (
-    <article className="post-card">
-      <p className="post-id">Post #{post.id}</p>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-    </article>
-  );
 }
 
 export default async function Home() {
@@ -132,14 +130,29 @@ export default async function Home() {
 
       <section>
         <h3>1) Renderizar solo 1 post</h3>
-        {firstPost ? <PostCard post={firstPost} /> : <p>No hay posts.</p>}
+        {firstPost ? (
+          <Post
+            userId={firstPost.userId}
+            id={firstPost.id}
+            title={firstPost.title}
+            body={firstPost.body}
+          />
+        ) : (
+          <p>No hay posts.</p>
+        )}
       </section>
 
       <section>
         <h3>2) Forma de renderizar mas de 1</h3>
         <div className="post-list">
           {posts.slice(0, 3).map((post) => (
-            <PostCard key={post.id} post={post} />
+            <Post
+              key={post.id}
+              userId={post.userId}
+              id={post.id}
+              title={post.title}
+              body={post.body}
+            />
           ))}
         </div>
       </section>

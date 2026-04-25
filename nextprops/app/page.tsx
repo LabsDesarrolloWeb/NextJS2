@@ -1,4 +1,7 @@
 import Post from "./components/Post/Post";
+import Header from "./components/Header/Header";
+
+
 
 type PostType = {
   userId: number;
@@ -126,21 +129,7 @@ export default async function Home() {
 
   return (
     <main className="container">
-      <h1>Practica de Props + Plantilla</h1>
-
-      <section>
-        <h3>1) Renderizar solo 1 post</h3>
-        {firstPost ? (
-          <Post
-            userId={firstPost.userId}
-            id={firstPost.id}
-            title={firstPost.title}
-            body={firstPost.body}
-          />
-        ) : (
-          <p>No hay posts.</p>
-        )}
-      </section>
+      <Header />
 
       <section>
         <h3>2) Forma de renderizar mas de 1</h3>

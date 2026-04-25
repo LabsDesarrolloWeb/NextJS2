@@ -1,4 +1,7 @@
 import Post from "./components/Post/Post";
+import Header from "./components/Header/Header";
+
+
 
 type PostType = {
   userId: number;
@@ -126,6 +129,8 @@ export default async function Home() {
 
   return (
     <main className="container">
+      <Header />
+
       <section>
         <div className="post-list">
           {posts.slice(0, 3).map((post) => (

@@ -143,7 +143,6 @@ export default async function Home() {
       </section>
 
       <section>
-        <h3>2) Forma de renderizar mas de 1</h3>
         <div className="post-list">
           {posts.slice(0, 3).map((post) => (
             <Post
@@ -153,7 +152,8 @@ export default async function Home() {
               title={post.title}
               body={post.body}
             />
-          ))}
+          ))} 
+          
 
           
         </div>

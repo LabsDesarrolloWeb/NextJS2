@@ -1,47 +1,96 @@
+/* =============================================================
+   Header.module.css — Barra superior estilo Facebook
+   ============================================================= */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #4267B2;
-  color: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;            /* FB usa header blanco */
+  color: #050505;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   width: 100%;
+  position: sticky;                     /* se queda fija al hacer scroll */
+  top: 0;
+  z-index: 100;
+}
+
+/* ----- Bloque izquierdo: logo ----- */
+.left {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
 }
 
 .left h1 {
   margin: 0;
   font-size: 28px;
-  font-weight: bold;
-  color: white;
+  font-weight: 800;
+  color: #1877F2;                       /* azul Facebook */
+  letter-spacing: -0.5px;
 }
 
-.center input {
-  width: 400px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  outline: none;
-}
-
-.right {
-  display: flex;
+/* Quita el subrayado del Link que envuelve el titulo */
+.brandLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
   align-items: center;
 }
 
-.right button {
-  background: none;
+/* ----- Bloque centro: buscador ----- */
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.center input {
+  width: 100%;
+  max-width: 280px;
+  padding: 9px 16px;
   border: none;
-  color: white;
-  font-size: 16px;
-  margin-left: 15px;
+  border-radius: 50px;                  /* pildora como FB */
+  font-size: 15px;
+  background: #f0f2f5;
+  outline: none;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.center input:focus {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #1877F2;
+}
+
+/* ----- Bloque derecho: navegacion ----- */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
+/* Los <Link> envuelven a los <button>, quitamos su underline */
+.right a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.right button {
+  background: transparent;
+  border: none;
+  color: #65676B;                       /* gris secundario FB */
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .right button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #f0f2f5;
+  color: #1877F2;
 }

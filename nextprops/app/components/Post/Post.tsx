@@ -45,7 +45,6 @@ export default async function Post({ userId, id, title, body }: PostProps) {
       <span className={styles.postId}>ActivePost #{id}</span>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.body}>{body}</p>
-      <span className={styles.userId}>Active User  #{userId}</span>
         {comments.slice(0, 3).map((comment) => (
             <Comment
               key={comment.id}

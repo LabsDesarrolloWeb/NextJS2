@@ -1,0 +1,77 @@
+/* =============================================================
+   User.module.css — Tarjeta de perfil estilo Facebook
+   ============================================================= */
+
+.profile {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1),
+              0 1px 3px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ced0d4;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #1877F2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.name {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #050505;
+}
+
+.username {
+  margin: 0;
+  color: #65676B;
+  font-size: 14px;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.info p {
+  margin: 0;
+  color: #050505;
+}
+
+.label {
+  color: #65676B;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Link al perfil desde un Post */
+.profileLink {
+  color: #1877F2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.profileLink:hover {
+  text-decoration: underline;
+}

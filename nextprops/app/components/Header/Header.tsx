@@ -36,7 +36,7 @@ export default function Header() {
           mismo estilo visual y, a la vez, aprovechar la navegacion
           client-side de Next.
         */}
-        <Link href="/">
+        <Link href="/">   
           <button>Inicio</button>
         </Link>
 

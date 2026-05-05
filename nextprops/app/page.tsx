@@ -130,7 +130,7 @@ export default async function Home() {
     <main className="container">
       <section>
         <div className="post-list">
-          {posts.slice(0, 3).map((post) => (
+          {posts.slice(0, 8).map((post) => (
             <Post
               key={post.id}
               userId={post.userId}

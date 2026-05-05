@@ -1,5 +1,6 @@
 import styles from "./Post.module.css";
 import Comment from "../Comment/Comment";
+import Link from "next/dist/client/link";
 
 type PostProps = {
   userId: number;
@@ -42,6 +43,9 @@ export default async function Post({ userId, id, title, body }: PostProps) {
   const firstComment = comments[0];
   return (
     <div  className={styles.card}>
+      <Link href={`/users/${userId}`}>
+          Ver perfil
+      </Link>
       <span className={styles.postId}>ActivePost #{id}</span>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.body}>{body}</p>

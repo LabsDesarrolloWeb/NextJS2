@@ -30,7 +30,6 @@ async function getUser(id: string): Promise<UserProps> {
   }
 
   const data: UserProps = await response.json();
-  console.log("Usuario cargado:", data.name);
   return data;
 }
 

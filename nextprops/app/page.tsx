@@ -47,6 +47,7 @@ export default async function Home() {
     <main className="container">
       <section>
         <div className="post-list">
+          Lista
           {posts.slice(0, 8).map((post) => (
             <Post
               key={post.id}

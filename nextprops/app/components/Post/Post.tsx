@@ -44,7 +44,7 @@ export default async function Post({ userId, id, title, body }: PostProps) {
   return (
     <div  className={styles.card}>
       <Link href={`/users/${userId}`}>
-          Ver perfil Del usuario 
+          Ver perfil Del usuario  asdasd
       </Link>
       <span className={styles.postId}>ActivePost #{id}</span>
       <h2 className={styles.title}>{title}</h2>
